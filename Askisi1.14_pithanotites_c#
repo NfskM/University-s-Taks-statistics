@@ -1,0 +1,51 @@
+using System;
+using System.Collections.Generic;
+
+#Άσκηση 1.14 από 1η σειρά ασκήσεων στις πιθανότητες και τη στατιστική σε c#
+#Ναυσικά Μαστροδήμα
+
+namespace askisi1_14
+{
+    class Program
+    {
+        
+        static void Main(string[] args)
+        {
+            List<Boolean> Lista = new List<Boolean>();
+            int x;
+            int xprev = 987988778;
+            int counter=0;
+            Random r = new Random();
+            for (int i = 0; i <= 100000; i++) 
+            {
+                for (int j = 0; j <= 200; j++)
+                {
+                    x = r.Next(0,2);  
+                    if (xprev == x)
+                    {
+                        counter = counter + 1;
+                    }
+                    else
+                    {
+                        counter = 0;
+                    }
+                    xprev = x;
+                    if (counter == 7)
+                    {
+                        Lista.Add(true);
+                        counter = 0;
+                        break;
+                    }
+
+                }  
+
+            
+            }
+
+            float y = Lista.Count;
+            float w = y / 1000000;
+            float m = w * 100;
+            Console.Out.WriteLine("The coin frequency of 7 or more consecutive impressions of the same coin is " + m + "%");
+        }
+    }
+}
